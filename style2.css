@@ -1,0 +1,331 @@
+body{
+   background-image:url(image.jpeg);
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: center;
+   height: 100vh;
+}
+
+.page1,.page2,.page3{
+    display: none;  
+}
+
+.page1,.page2,.page3{
+ 
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+    
+
+#p1:checked~.page1{
+    display: grid;
+ flex-wrap: wrap;
+}
+#p2:checked~.page2{
+    display: grid;
+    flex-wrap: wrap;
+}
+#p3:checked~.page3{
+   display: grid;
+    flex-wrap: wrap;
+}
+.pagination label {
+    padding: 5px 10px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.A{
+    width: 200px;
+    height: 200px;
+    padding: 15px;
+    margin: 25px;
+    border-radius: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    transition: 0.1s;
+    
+}
+.A:hover{
+     transform: scale(1.1);
+}
+h1
+{
+     margin-top: 250px;
+    text-align: center;
+        font-size: 50px;
+    -webkit-text-stroke:1px black;
+    -webkit-text-fill-color: rgb(190, 166, 24);
+}
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    border-radius: 15px;
+}
+.a{
+    position: relative;
+    z-index: 1;
+  margin-top: 15px;
+   font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-stroke:1px rgba(0, 0, 0, 0.543);
+    -webkit-text-fill-color: gold;
+
+}
+input[type="radio"]{
+    display: none;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px;
+}
+
+.pagination label{
+    padding: 10px 15px;
+    border-radius: 50%;
+    background-color: #eee;
+    border: 2px solid #333;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.pagination label:hover{
+    background-color: #333;
+    color: white;
+}
+#p1:checked ~ .pagination label[for="p1"],
+#p2:checked ~ .pagination label[for="p2"],
+#p3:checked ~ .pagination label[for="p3"]{
+    background-color: gold;
+    color: rgb(20, 20, 20);
+    transform: scale(1.2);
+}
+.A img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.A{
+      text-align: center;
+     -webkit-text-stroke:1px rgba(0, 0, 0, 0.543);
+    -webkit-text-fill-color: rgb(73, 91, 30);
+    position: relative;
+    overflow: hidden;
+}
+.Shopping {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    background: #f6f5f5;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    opacity: 0; 
+    transition: 0.3s;
+    cursor: pointer;
+}
+.A:hover .Shopping{
+    opacity: 1;
+}
+#cart-toggle {
+    display: none;
+}
+
+/* أيقونة السلة */
+.cart-icon {
+    position: fixed;
+    top: 150px;
+    right: 20px;
+    background:goldenrod;
+    color: white;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* السلة */
+.cart {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    width: 250px;
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+
+    box-shadow: 0 10px 25px gray;
+
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+
+    transition: 0.3s;
+}
+
+/* لما تفتح */
+#cart-toggle:checked + .cart-icon + .cart {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* عنوان */
+.cart h3 {
+    margin-bottom: 10px;
+}
+
+/* السلة الفاضية */
+.empty {
+    text-align: center;
+    color: gray;
+    font-style: italic;
+}
+
+/* الإجمالي */
+.total {
+    margin-top: 10px;
+    font-weight: bold;
+}
+.item1 {
+    display: none;
+}
+
+/* لما تضغطي */
+#add1:checked ~ .cart .item1 {
+    display: block;
+}
+/* نخفي الـ checkbox */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* لما المستخدم يضغط */
+input[type="checkbox"]:checked + .Shopping {
+    background-color:white;
+    color: white;
+}
+
+/* نغير الكلام */
+input[type="checkbox"]:checked + .Shopping::after {
+    content: " ✔";
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    list-style:none;
+    text-decoration:none;
+    font-family: 'Georgia', serif;
+  }
+  
+  /* Navbar */
+  .navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+  }
+  
+  /* Logo */
+  .logo{
+    color:gold;
+    font-size:30px;
+    letter-spacing:3px;
+    font-weight:bold;
+    transition:0.3s;
+  }
+  .logo:hover{
+    color:white; 
+  }
+  
+  /* Links */
+  .nav-links{
+    display:flex;
+    gap:30px;
+    
+  }
+  
+  .nav-links a{
+    color:white;
+    font-size:18px;
+    position:relative;
+    transition:0.3s;
+  }
+  
+  /* Underline animation */
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0%;
+    height:2px;
+    background:gold;
+    transition:0.3s;
+  }
+  
+  .nav-links a:hover{
+    color:gold;
+
+  }
+  
+  .nav-links a:hover::after{
+    width:100%;
+  }
+  
+  /* Buttons */
+  .auth-buttons{
+    display:flex;
+  }
+  
+  .auth-buttons button{
+    margin-left:10px;
+    padding:8px 18px;
+    border-radius:20px;
+    cursor:pointer;
+    transition:0.3s;
+    font-size:14px;
+  }
+  
+  
+  
+  /* Gold button */
+  .btn-gold{
+    background:gold;
+    border:none;
+    color:black;
+  }
+  
+  .btn-gold:hover{
+    background:white;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px gold;
+  }
+  .nav-links a i{
+    margin-right:8px;
+  }
+  
+  .logo i{
+    margin-right:8px;
+  }
+  
+  button i{
+    margin-right:6px;
+  }
